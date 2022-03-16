@@ -1,0 +1,78 @@
+version: 2
+importPivots: 1
+tpsheetFileNames:
+- Assets/codeandweb.com/Example/SpriteSheet/sprites.tpsheet
+- Assets/IWDev/UISolution/Textures/InterfaceAtlas/InterfaceAtlas.tpsheet
+- Assets/Textures/_MetaGame/BasicAtlas/MetaBasicAtlas.tpsheet
+- Assets/Textures/2DHumanAnimations_0/2DHumanAnimations_0.tpsheet
+- Assets/Textures/Atlases/BlueEnemy24_full/BlueEnemy24_full.tpsheet
+- Assets/Textures/CardsAtlas/CardsAtlas.tpsheet
+- Assets/Textures/Characters/HareDialog_BIG.tpsheet
+- Assets/Textures/Characters/HareGood.tpsheet
+- Assets/Textures/Characters/HareGood_BIG.tpsheet
+- Assets/Textures/Characters/HareGreetings.tpsheet
+- Assets/Textures/Characters/HareJumping.tpsheet
+- Assets/Textures/Characters/HareRotating.tpsheet
+- Assets/Textures/Characters/HareRotating_UI.tpsheet
+- Assets/Textures/Characters/HareRun.tpsheet
+- Assets/Textures/CharatersUI/CharactersUI.tpsheet
+- Assets/Textures/ChestPresents/ChestPresents.tpsheet
+- Assets/Textures/EffectsAtlas/EffectsAtlas.tpsheet
+- Assets/Textures/Frog/SweetTooth.tpsheet
+- Assets/Textures/InterfaceAtlas/InterfaceAtlas.tpsheet
+- Assets/Textures/InterfaceAtlas_2/InterfaceAtlas_2.tpsheet
+- Assets/Textures/LoadingAtlas/LoadingAtlas.tpsheet
+- Assets/Textures/WandTips/WandTipsAtlas.tpsheet
+- Assets/Textures/WorldAtlas/WorldAtlas.tpsheet
+- Assets/Textures/WorldAtlas_2/WorldAtlas_2.tpsheet
+textureFileNames:
+- Assets/codeandweb.com/Example/SpriteSheet/sprites.png
+- Assets/IWDev/UISolution/Textures/InterfaceAtlas/InterfaceAtlas.png
+- Assets/Textures/_MetaGame/BasicAtlas/MetaBasicAtlas.png
+- Assets/Textures/2DHumanAnimations_0/2DHumanAnimations_0.png
+- Assets/Textures/Atlases/BlueEnemy24_full/BlueEnemy24_full.png
+- Assets/Textures/CardsAtlas/CardsAtlas.png
+- Assets/Textures/Characters/HareDialog_BIG.png
+- Assets/Textures/Characters/HareGood.png
+- Assets/Textures/Characters/HareGood_BIG.png
+- Assets/Textures/Characters/HareGreetings.png
+- Assets/Textures/Characters/HareJumping.png
+- Assets/Textures/Characters/HareRotating.png
+- Assets/Textures/Characters/HareRotating_UI.png
+- Assets/Textures/Characters/HareRun.png
+- Assets/Textures/CharatersUI/CharactersUI.png
+- Assets/Textures/ChestPresents/ChestPresents.png
+- Assets/Textures/EffectsAtlas/EffectsAtlas.png
+- Assets/Textures/Frog/SweetTooth.png
+- Assets/Textures/InterfaceAtlas/InterfaceAtlas.png
+- Assets/Textures/InterfaceAtlas_2/InterfaceAtlas_2.png
+- Assets/Textures/LoadingAtlas/LoadingAtlas.png
+- Assets/Textures/WandTips/WandTipsAtlas.png
+- Assets/Textures/WorldAtlas/WorldAtlas.png
+- Assets/Textures/WorldAtlas_2/WorldAtlas_2.png
+normalmapFileNames:
+- Assets/codeandweb.com/Example/SpriteSheet/sprites_n.png
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+- 
+enableDebugOutput: 0

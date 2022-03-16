@@ -1,0 +1,983 @@
+fileFormatVersion: 2
+guid: 009389715e606cb40a819559071d2fdd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1633227822305351217
+    second: BlueButton
+  - first:
+      213: 1888724352473374788
+    second: CheckedBlue
+  - first:
+      213: 3634646858223302323
+    second: CheckedBlue2
+  - first:
+      213: 6142602245237948243
+    second: CheckedGray
+  - first:
+      213: -8969153636306733219
+    second: CheckedPink
+  - first:
+      213: -5999063066323621566
+    second: CheckedPurple
+  - first:
+      213: 2109291130955193555
+    second: FacebookButton
+  - first:
+      213: -8964136286258684493
+    second: GreenButton
+  - first:
+      213: -8739278795211222941
+    second: GreyButton
+  - first:
+      213: -218698807606904660
+    second: HelpText
+  - first:
+      213: -6223055585484757778
+    second: InfoText
+  - first:
+      213: 5118495751827104713
+    second: LeftUnder
+  - first:
+      213: 1786246863626547964
+    second: Pause
+  - first:
+      213: -4453683485786594788
+    second: PinkButton
+  - first:
+      213: 7398965965193601410
+    second: PinkButton_fixed
+  - first:
+      213: -2988896183135768547
+    second: PurpleButton
+  - first:
+      213: 2213013946770592352
+    second: Radiobutton
+  - first:
+      213: 193010148565536929
+    second: TurquoiseButton
+  - first:
+      213: 3497670627204177209
+    second: YellowButton
+  - first:
+      213: -6895646815083032620
+    second: PinkButtonBox_fixed
+  - first:
+      213: -6358939600657027692
+    second: Next
+  - first:
+      213: 2418293382527791535
+    second: AlphaTop
+  - first:
+      213: 3194221702391391411
+    second: SimplePurpleCard
+  - first:
+      213: 9073486995356558518
+    second: GlowEffect
+  - first:
+      213: 8635670310953891122
+    second: WhiteBox
+  - first:
+      213: -1336683714752658441
+    second: PinkButton_fixed 2
+  - first:
+      213: -3497926040805705425
+    second: PinkButton_fixed 3
+  - first:
+      213: -1581195941753542429
+    second: AbilityReflect
+  - first:
+      213: 1365155683536298085
+    second: BasicLock
+  - first:
+      213: 8121325519241331114
+    second: CircledBtnGlow
+  - first:
+      213: 6660430153052281213
+    second: BasicCoin
+  - first:
+      213: 663955190392991694
+    second: More
+  - first:
+      213: 6143144313810508845
+    second: ShineAnimation
+  - first:
+      213: 7916632463176255054
+    second: TopBackgroundBoxCircled
+  - first:
+      213: 4429394613251267029
+    second: RedButtonRound
+  - first:
+      213: -5162051978189963657
+    second: BloodRedButtonRound
+  - first:
+      213: -6056647508914063425
+    second: RedButtonRound Bufffed
+  - first:
+      213: -6941900552672106511
+    second: PopUp11
+  - first:
+      213: 5725614025989553725
+    second: PopUpHeader
+  - first:
+      213: -4329052897279480372
+    second: PopUpUnder_pink
+  - first:
+      213: 8630310335620293774
+    second: PopUpHeader_pink
+  - first:
+      213: -2715984308557246644
+    second: PopUpHeader_blue
+  - first:
+      213: -489733407107529699
+    second: PopUpUnder_blue
+  - first:
+      213: -8787166057711440313
+    second: PopUpHeader_orange
+  - first:
+      213: 1470691054714774638
+    second: PopUpHeader_purple
+  - first:
+      213: -8324913741829099806
+    second: PopUpUnder_orange
+  - first:
+      213: 5282146237282887328
+    second: PopUpUnder_purple
+  - first:
+      213: 7373773202570034088
+    second: Selection_blue
+  - first:
+      213: 61302473714320171
+    second: BlueButton_small
+  - first:
+      213: 8659474824711615487
+    second: Hand
+  - first:
+      213: 5197703752457059854
+    second: CheckedIcon
+  - first:
+      213: -1143295133549814533
+    second: GreenButton_small
+  - first:
+      213: -6848121599763602934
+    second: AdsIcon
+  - first:
+      213: 4878726674262478884
+    second: BiigPlayButton
+  - first:
+      213: -2270835585109362940
+    second: BlueCkeckbox
+  - first:
+      213: -3319479083428797426
+    second: BlueLevelButton
+  - first:
+      213: -20355933876578901
+    second: BlueRadiobutton
+  - first:
+      213: 4897220390469981656
+    second: BubbleBlue
+  - first:
+      213: 7854540705594106228
+    second: CheckedIconBlue
+  - first:
+      213: -2309022093719449219
+    second: CheckedIconPink
+  - first:
+      213: 1932321895275581534
+    second: Cloud
+  - first:
+      213: 8765955682749052824
+    second: Coin
+  - first:
+      213: -1990968967382982814
+    second: ConeLight_2
+  - first:
+      213: 6399259388739850033
+    second: ConeLight_4
+  - first:
+      213: -186749814341011499
+    second: ConeLight_5
+  - first:
+      213: 1911113427907793181
+    second: DottedLine
+  - first:
+      213: -6158806585728868618
+    second: DottedUnder
+  - first:
+      213: 3312905362556525748
+    second: ExitIcon
+  - first:
+      213: 1708564563509906909
+    second: GreenSlider
+  - first:
+      213: 2973623141087348366
+    second: GreyLevelButton
+  - first:
+      213: 3689728056349684682
+    second: GreyLevelButton2
+  - first:
+      213: -1789225036125934423
+    second: HelpIcon
+  - first:
+      213: -3115678055085444505
+    second: InfoIcon
+  - first:
+      213: -2956614178179269486
+    second: Life
+  - first:
+      213: -504433217576610944
+    second: LifeGrey
+  - first:
+      213: -2998242240107958500
+    second: MenuIcon
+  - first:
+      213: -8764026439218156260
+    second: MusicIcon
+  - first:
+      213: 6277952981619738161
+    second: OrangeButton_small
+  - first:
+      213: -8632315992383871881
+    second: PinkBubble
+  - first:
+      213: -9078917435142732810
+    second: 'PinkButton_small '
+  - first:
+      213: 575721642424153386
+    second: PinkCkeckbox
+  - first:
+      213: -7079493417232134009
+    second: PinkLevelButton
+  - first:
+      213: 3695889294626113667
+    second: PinkRadiobutton
+  - first:
+      213: 3669598898477458467
+    second: Rainbow
+  - first:
+      213: -6302779036439814058
+    second: RedSlider
+  - first:
+      213: 7701062919258642879
+    second: ReloadIcon
+  - first:
+      213: 8641218099161620494
+    second: RepeatIcon
+  - first:
+      213: 8612796958653499832
+    second: SettingsIcon
+  - first:
+      213: -3006424146876783227
+    second: SliderButton
+  - first:
+      213: -131390822890367112
+    second: SoundIcon
+  - first:
+      213: -4961705557011565890
+    second: StarShine
+  - first:
+      213: -9062288249229781981
+    second: SubHeader
+  - first:
+      213: -308124574194127518
+    second: TimeIcon
+  - first:
+      213: 5573562654732271928
+    second: Marsh1
+  - first:
+      213: -5553037393519431752
+    second: Marsh2
+  - first:
+      213: -8254521645284669735
+    second: CheckedIconGreen
+  - first:
+      213: 7931156018796466168
+    second: SelectionBlue
+  - first:
+      213: 4291796580510313350
+    second: HeaderBlue
+  - first:
+      213: -2268015130303590986
+    second: PopUpBlueOptimized
+  - first:
+      213: -299579589441886229
+    second: GoldenCup
+  - first:
+      213: 3582666327254078735
+    second: BlueSlider
+  - first:
+      213: -6357607889494869608
+    second: FailIconRed
+  - first:
+      213: -3235151309937542338
+    second: GraySlider
+  - first:
+      213: -5155215277887700212
+    second: Lolli1
+  - first:
+      213: -484925956586249732
+    second: Lolli2
+  - first:
+      213: -1929651101442445031
+    second: PopUpGrayOptimized
+  - first:
+      213: 791991759508531929
+    second: SelectionGray
+  - first:
+      213: 7323777346988886004
+    second: LifeRed
+  - first:
+      213: -4030107008160301780
+    second: GrayButton_small
+  - first:
+      213: -4479236199005422457
+    second: PodlodkaBlue
+  - first:
+      213: 8883483430022755687
+    second: PodlodkaBlueWtf
+  - first:
+      213: -9056217653929135233
+    second: PodlodkaBrightBlue
+  - first:
+      213: 1690707968852427896
+    second: PodlodkaPink
+  - first:
+      213: -5009760808139517309
+    second: WhiteBlueSlider
+  - first:
+      213: 7266731342573138371
+    second: GrayBrightSlider
+  - first:
+      213: 7299412892941513799
+    second: HeaderPurple
+  - first:
+      213: -7616804493943042636
+    second: Battery
+  - first:
+      213: 4445140817576949097
+    second: Flag
+  - first:
+      213: -4201955221615703338
+    second: WhiteCircle
+  - first:
+      213: -341288782411198714
+    second: WhiteCircleEmpty
+  - first:
+      213: 3092439513281712578
+    second: MessageCorner
+  - first:
+      213: -2068547117922685782
+    second: Vosmiorka
+  - first:
+      213: -2544954167446512767
+    second: CoinIcon
+  - first:
+      213: -6590148473709061787
+    second: CoinArt
+  - first:
+      213: -4599432686438653736
+    second: Element_2_White_smaller
+  - first:
+      213: -4225708405296720049
+    second: BowlUI
+  - first:
+      213: -5827262644602348083
+    second: MessageCorner_Bright
+  - first:
+      213: 8258582650481990229
+    second: SliderButton_Bright
+  - first:
+      213: 2958837014332770678
+    second: WOF_SuperChanceBorder
+  - first:
+      213: -3087258680037062334
+    second: SLMRhombusBody_Purple
+  - first:
+      213: -3923440946540510501
+    second: WOF_Ticket
+  - first:
+      213: -7833756675540964716
+    second: TicketMask
+  - first:
+      213: -5702960174819729865
+    second: SLMRhombusBody_FullWhite
+  - first:
+      213: 4042540163985945259
+    second: SLMRhombusBody_FullWhite_2
+  - first:
+      213: 8256387964614752978
+    second: AlphaTop_Circled
+  - first:
+      213: 6543351239085237110
+    second: set_icon_gold_5
+  - first:
+      213: 110643044585643387
+    second: CoinArt_border
+  - first:
+      213: 6129756664165316390
+    second: CardStack
+  - first:
+      213: -2363516958698729009
+    second: SpikedBall1
+  - first:
+      213: -4547360031372169494
+    second: SpikedBall_Border
+  - first:
+      213: -643627347334456986
+    second: SpikedBall_shadow
+  - first:
+      213: 585572999827373140
+    second: UniversalSimpleUnder_Border
+  - first:
+      213: -2041921991962434120
+    second: UniversalSimpleUnder_BottomHiLight
+  - first:
+      213: 1310638579173036119
+    second: UniversalSimpleUnder_Main
+  - first:
+      213: -3241603890797250682
+    second: UniversalSimpleUnder_MainBlurred
+  - first:
+      213: 2289460350653377569
+    second: UniversalSimpleUnder_TopHiLight
+  - first:
+      213: -4236431054215491896
+    second: UniversalSimpleUnderSource
+  - first:
+      213: 167289698339400443
+    second: USmartLine2_BackFill
+  - first:
+      213: 7516844131139967789
+    second: USmartLine2_GlowFill
+  - first:
+      213: 8089322453622242038
+    second: USmartLine2_MainFill
+  - first:
+      213: 8779964008593867207
+    second: USmartLine_MainFill
+  - first:
+      213: -7298848253032916985
+    second: USmartLine_TopHiLight
+  - first:
+      213: 6955606349412819910
+    second: Ability_1
+  - first:
+      213: -1131801042318263264
+    second: Ability_2
+  - first:
+      213: 1850103386341603169
+    second: Ability_3
+  - first:
+      213: 5418223077638163612
+    second: Card_Blue
+  - first:
+      213: -3482027074641134287
+    second: Card_Choco
+  - first:
+      213: 1298033866964838059
+    second: Card_Green
+  - first:
+      213: -5649980845246180219
+    second: Card_ID_4
+  - first:
+      213: 9102030750029916821
+    second: Card_Multicolor
+  - first:
+      213: 1248442872582886229
+    second: Card_Orange
+  - first:
+      213: -8589102629841800998
+    second: Card_Purple
+  - first:
+      213: -4382213594860212313
+    second: Card_WhiteChoco
+  - first:
+      213: 4836149114999495593
+    second: AngleMask
+  - first:
+      213: 2188911141056617944
+    second: CoinArtContrast
+  - first:
+      213: 7034423813313189624
+    second: Arrow
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 33
+    textureCompression: 1
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 12
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: AlphaTop
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 16
+        width: 64
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3043478}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa13f3cc4018f8120800000000000000
+      internalID: 2418293382527791535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ExitIcon
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 281
+        width: 97
+        height: 100
+      alignment: 9
+      pivot: {x: 0.5154639, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bc1badefddc9fd20800000000000000
+      internalID: 3312905362556525748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GlowEffect
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 447
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b4aa5059508bed70800000000000000
+      internalID: 9073486995356558518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HelpIcon
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 64
+        width: 89
+        height: 100
+      alignment: 9
+      pivot: {x: 0.48314607, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ac6a723f456b27e0800000000000000
+      internalID: -1789225036125934423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: InfoIcon
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 64
+        width: 37
+        height: 100
+      alignment: 9
+      pivot: {x: 0.5135135, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 762f6240153e2c4d0800000000000000
+      internalID: -3115678055085444505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MenuIcon
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 317
+        width: 100
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1f2bc7619a1466d0800000000000000
+      internalID: -2998242240107958500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: More
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 180
+        width: 76
+        height: 99
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4949495}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecfa6265ab7d63900800000000000000
+      internalID: 663955190392991694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MusicIcon
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 411
+        width: 97
+        height: 100
+      alignment: 9
+      pivot: {x: 0.5051546, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1d2548236cef5680800000000000000
+      internalID: -8764026439218156260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Next
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 429
+        width: 91
+        height: 82
+      alignment: 9
+      pivot: {x: 0.50549453, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49d6ca2df1280c7a0800000000000000
+      internalID: -6358939600657027692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pause
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 359
+        width: 58
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf2bd9bfe060ac810800000000000000
+      internalID: 1786246863626547964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ReloadIcon
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 166
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb9185f4cebafda60800000000000000
+      internalID: 7701062919258642879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RepeatIcon
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 64
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e00643bf316cbe770800000000000000
+      internalID: 8641218099161620494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SettingsIcon
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 166
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b94b1b833dc68770800000000000000
+      internalID: 8612796958653499832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoundIcon
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 428
+        width: 100
+        height: 83
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5180723}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8779fd22eb43d2ef0800000000000000
+      internalID: -131390822890367112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UniversalSimpleUnder_Main
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 268
+        width: 106
+        height: 113
+      alignment: 9
+      pivot: {x: 0.5, y: 0.49557522}
+      border: {x: 44, y: 44, z: 44, w: 44}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 750188cf7d2503210800000000000000
+      internalID: 1310638579173036119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WhiteBox
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 381
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 5, y: 5, z: 5, w: 5}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2353bc1e46018d770800000000000000
+      internalID: 8635670310953891122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WhiteCircle
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 383
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6da8f752df7afa5c0800000000000000
+      internalID: -4201955221615703338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
