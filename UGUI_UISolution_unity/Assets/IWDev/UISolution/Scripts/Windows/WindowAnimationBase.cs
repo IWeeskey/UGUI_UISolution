@@ -155,6 +155,11 @@ namespace IWDev.UISolution
         private List<Tween> ActiveTweens = new List<Tween>();
 
         /// <summary>
+        /// List of active IEnumerator
+        /// </summary>
+        private List<IEnumerator> ActiveIEnumerators = new List<IEnumerator>();
+
+        /// <summary>
         /// Use this method from editor. Gathers all necessary info to work properly
         /// </summary>
         public void GetReferences()
@@ -167,7 +172,6 @@ namespace IWDev.UISolution
         /// </summary>
         protected virtual void OnInit()
         {
-            KillAllActiveTweens();
             if (CurrentStateCoro != null) StopCoroutine(CurrentStateCoro);
 
             CanvasesEnable(!WindowSettings.AwakeDisabled);
@@ -228,16 +232,7 @@ namespace IWDev.UISolution
             CanvasesEnable(false);
             EnableAnimator(false);
 
-            KillAllActiveTweens();
-            if (CurrentStateCoro != null) StopCoroutine(CurrentStateCoro);
-        }
-
-        /// <summary>
-        /// Stops all DOTweens and Coroutines
-        /// </summary>
-        private void StopAllCoroutines()
-        {
-            KillAllActiveTweens();
+            KillAllCoroutines();
             if (CurrentStateCoro != null) StopCoroutine(CurrentStateCoro);
         }
 
@@ -320,6 +315,14 @@ namespace IWDev.UISolution
         /// <returns></returns>
         IEnumerator DisAppearCoro()
         {
+            IEnumerator _DisableAnimatorCoro = IndependentCoroutines.CallbackDelay_IEnumerator(0.5f / WindowSettings.DisappearSpeed, () =>
+            {
+                CanvasesEnable(false);
+                EnableAnimator(false);
+            });
+            ActiveIEnumerators.Add(_DisableAnimatorCoro);
+
+            /*
             Tween _tween = IndependentCoroutines.CallbackDelay_DoTween(0.5f / WindowSettings.DisappearSpeed, () => 
             {
                 CanvasesEnable(false);
@@ -327,15 +330,17 @@ namespace IWDev.UISolution
             });
 
             ActiveTweens.Add(_tween);
-
             yield return _tween.WaitForCompletion();
+            */
+
+            yield return StartCoroutine(_DisableAnimatorCoro);
         }
 
         
         /// <summary>
-        /// Kills all active tweens and clears the list
+        /// Kills all active tweens and coroutines
         /// </summary>
-        private void KillAllActiveTweens()
+        private void KillAllCoroutines()
         {
             foreach (Tween tw in ActiveTweens)
             {
@@ -345,6 +350,15 @@ namespace IWDev.UISolution
                 }
             }
             ActiveTweens.Clear();
+
+            foreach (IEnumerator _IEnum in ActiveIEnumerators)
+            {
+                if (_IEnum != null) StopCoroutine(_IEnum);
+            }
+
+            ActiveIEnumerators.Clear();
+
+            if (CurrentStateCoro != null) StopCoroutine(CurrentStateCoro);
         }
 
 
@@ -359,13 +373,22 @@ namespace IWDev.UISolution
         /// <returns></returns>
         IEnumerator AppearCoro()
         {
-            //run tween wich disables animator component
+            IEnumerator _DisableAnimatorCoro = IndependentCoroutines.CallbackDelay_IEnumerator(0.5f / WindowSettings.AppearSpeed, () =>
+            {
+                EnableAnimator(false);
+            });
+            StartCoroutine(_DisableAnimatorCoro);
+            ActiveIEnumerators.Add(_DisableAnimatorCoro);
+
+            /*
+            //run tween which disables animator component
             Tween _DisableAnimatorTween = IndependentCoroutines.CallbackDelay_DoTween(0.5f / WindowSettings.AppearSpeed, () =>
             {
                 EnableAnimator(false);
             });
 
             ActiveTweens.Add(_DisableAnimatorTween);
+            */
 
             foreach (UIElementBase uiae in WindowReferences.AllAnimatedElements)
             {

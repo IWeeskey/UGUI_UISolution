@@ -120,6 +120,10 @@ namespace IWDev.UISolution
         /// </summary>
         private List<Tween> ActiveTweens = new List<Tween>();
 
+        /// <summary>
+        /// List of active IEnumerator
+        /// </summary>
+        private List<IEnumerator> ActiveIEnumerators = new List<IEnumerator>();
 
         /// <summary>
         /// Locks or unlocks this ui element so it can not be clickable
@@ -206,9 +210,9 @@ namespace IWDev.UISolution
         }
 
         /// <summary>
-        /// Kills all active tweens and clears the list
+        /// Kills all active tweens and coroutines
         /// </summary>
-        private void KillAllActiveTweens()
+        private void KillAllCoroutines()
         {
             foreach (Tween tw in ActiveTweens)
             {
@@ -218,6 +222,13 @@ namespace IWDev.UISolution
                 }
             }
             ActiveTweens.Clear();
+
+            foreach (IEnumerator _IEnum in ActiveIEnumerators)
+            {
+                if (_IEnum != null) StopCoroutine(_IEnum);
+            }
+
+            ActiveIEnumerators.Clear();
         }
 
 
@@ -228,7 +239,7 @@ namespace IWDev.UISolution
         public void SwitchAnimationTo(UIEBasicStates _value)
         {
             EnableAnimator(true);
-            KillAllActiveTweens();
+            KillAllCoroutines();
 
             RuntimeParameters.LastAnimationType = _value;
             ElementReferences.CheckReferences(gameObject);
@@ -241,12 +252,22 @@ namespace IWDev.UISolution
             //handling animator component 
             if (AnimationScaleSettings.Idle == UIEStates_Idle.None)
             {
+                IEnumerator _DisableAnimatorCoro = IndependentCoroutines.CallbackDelay_IEnumerator(0.5f, () =>
+                {
+                    EnableAnimator(false);
+                });
+                StartCoroutine(_DisableAnimatorCoro);
+                ActiveIEnumerators.Add(_DisableAnimatorCoro);
+
+
+                /*
                 Tween _DisableAnimatorTween = IndependentCoroutines.CallbackDelay_DoTween(0.5f, () =>
                 {
                     EnableAnimator(false);
                 });
 
                 ActiveTweens.Add(_DisableAnimatorTween);
+                */
             }
         }
 
