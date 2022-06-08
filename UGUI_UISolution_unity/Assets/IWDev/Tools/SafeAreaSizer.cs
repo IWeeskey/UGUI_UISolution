@@ -4,9 +4,13 @@ using UnityEngine;
 public enum ScreenAspects
 {
     None = 0,
-    Normal_9_16,
-    Wide_10_15,
-    Narrow_11_24
+    Portrait_Normal_9_16,
+    Portrait_Wide_10_15,//ipad
+    Portrait_Narrow_11_24,//modern iphone and other sausage-like forms
+
+    Landscape_Normal_9_16,
+    Landscape_Wide_10_15,//ipad
+    Landscape_Narrow_11_24,//modern iphone and other sausage-like forms
 }
 
 
@@ -32,38 +36,85 @@ namespace IWDev.Tools
         /// </summary>
         public int TopValueFixed = 0;
 
+        public bool PerformLogic_Portrait = true;
+        public bool PerformLogic_Landscape = false;
+
 
         private void Awake()
         {
+            RecalculateAll();
+        }
 
+        public void RecalculateAll()
+        {
             ScreenAspect = GetCurrentAspectRatio();
             CurrentAspect = GetScreenAspect();
 
-
-            if (CurrentAspect == ScreenAspects.Narrow_11_24)
+            if ((CurrentAspect == ScreenAspects.Portrait_Narrow_11_24
+                || CurrentAspect == ScreenAspects.Portrait_Normal_9_16
+                || CurrentAspect == ScreenAspects.Portrait_Wide_10_15)
+                && PerformLogic_Portrait)
             {
-                SetTop(TopValueFixed);
+                if (CurrentAspect == ScreenAspects.Portrait_Narrow_11_24)
+                {
+                    SetTop(TopValueFixed);
+                }
+                else
+                {
+                    SetTop(TopValueNormal);
+                }
             }
-            else
+
+            if ((CurrentAspect == ScreenAspects.Landscape_Narrow_11_24
+               || CurrentAspect == ScreenAspects.Landscape_Normal_9_16
+               || CurrentAspect == ScreenAspects.Landscape_Wide_10_15)
+               && PerformLogic_Landscape)
             {
-                SetTop(TopValueNormal);
+                if (CurrentAspect == ScreenAspects.Landscape_Narrow_11_24)
+                {
+                    SetLeft(TopValueFixed);
+                }
+                else
+                {
+                    SetLeft(TopValueNormal);
+                }
             }
 
         }
 
         private ScreenAspects GetScreenAspect()
         {
-            if (ScreenAspect >= 2.1f)
+            //landscape
+            if (ScreenAspect <= 1f)
             {
-                return ScreenAspects.Narrow_11_24;
-            }
+                //ipad
+                if (ScreenAspect >= 0.74f)
+                {
+                    return ScreenAspects.Landscape_Wide_10_15;
+                }
+                //normal
+                else if (ScreenAspect >= 0.49f)
+                {
+                    return ScreenAspects.Landscape_Normal_9_16;
+                }
 
-            if (ScreenAspect <= 1.5f)
+                //narrow
+                return ScreenAspects.Landscape_Narrow_11_24;
+            }
+            //portrait
+            else
             {
-                return ScreenAspects.Wide_10_15;
-            }
+                if (ScreenAspect >= 2.1f)
+                {
+                    return ScreenAspects.Portrait_Narrow_11_24;
+                }
 
-            return ScreenAspects.Normal_9_16;
+                if (ScreenAspect <= 1.5f)
+                {
+                    return ScreenAspects.Portrait_Wide_10_15;
+                }
+                return ScreenAspects.Portrait_Normal_9_16;
+            }
         }
 
         private float GetCurrentAspectRatio()
