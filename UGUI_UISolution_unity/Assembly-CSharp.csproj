@@ -255,7 +255,6 @@
     <None Include="Assets\Demigiant\DOTween\DOTween.XML" />
     <None Include="Assets\unity-ui-extensions\Shaders\SoftMaskShader.shader" />
     <None Include="Assets\unity-ui-extensions\Shaders\UI Particle Premultiply Blend.shader" />
-    <None Include="Assets\codeandweb.com\Readme.txt" />
     <None Include="Assets\unity-ui-extensions\Shaders\UI Particle VertexLit Blended.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\unity-ui-extensions\Shaders\UI Particle MultiplyDouble.shader" />
