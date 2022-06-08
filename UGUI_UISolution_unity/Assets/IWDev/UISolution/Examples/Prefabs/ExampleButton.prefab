@@ -280,13 +280,11 @@ MonoBehaviour:
     Pressed: 1
     Clicked: 1
     Disappear: 1
-    WhileIdle: 1
+    Kick: 1
   RuntimeParameters:
     NotClickable: 0
     LastAnimationType: 3
-  BtnGlow: {fileID: 0}
-  PerformAfterDisAppear: 0
-  PerformAfterAnimation: 1
+  PlayClickSound: 1
   OnClickTrigger:
     m_PersistentCalls:
       m_Calls: []
@@ -296,11 +294,6 @@ MonoBehaviour:
   OnUnPressTrigger:
     m_PersistentCalls:
       m_Calls: []
-  SoundButtonDontPlay: 0
-  CurrentPressSettings:
-    OnPressHiLight: []
-    OnPressText: {fileID: 0}
-    MinAlpha: 0.5
 --- !u!223 &6991588596420711283
 Canvas:
   m_ObjectHideFlags: 0
@@ -318,7 +311,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 1
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -416,8 +409,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1310638579173036119, guid: 009389715e606cb40a819559071d2fdd,
-    type: 3}
+  m_Sprite: {fileID: 21300000, guid: ce77b1b209c19fd49a697f46c91006b0, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -426,7 +418,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 0.5
+  m_PixelsPerUnitMultiplier: 1
 --- !u!114 &7929440263395405508
 MonoBehaviour:
   m_ObjectHideFlags: 0

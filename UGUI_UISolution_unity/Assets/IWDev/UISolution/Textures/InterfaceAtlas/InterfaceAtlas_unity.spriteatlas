@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: InterfaceAtlas_unity
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: Android
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 12
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 252de3d675a17ac40a26d4972d80ed72, type: 3}
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: e8e4fb701010d9c41b3a57ba336cefe0, type: 3}
+  - {fileID: 21300000, guid: b1491111af9184a4b81212e92ae6a642, type: 3}
+  - {fileID: 21300000, guid: f4718a6143c1e854d81407135ac0a39a, type: 3}
+  - {fileID: 21300000, guid: bf623732df9980e4dbaf77760d21a5e5, type: 3}
+  - {fileID: 21300000, guid: a147c352d8dc7df46a180211b4e6a254, type: 3}
+  - {fileID: 21300000, guid: ce77b1b209c19fd49a697f46c91006b0, type: 3}
+  - {fileID: 21300000, guid: ff1faea48772f0e44aa19dd4cb6a2413, type: 3}
+  - {fileID: 21300000, guid: 5afad267ea293404d94906d91e4e75e0, type: 3}
+  - {fileID: 21300000, guid: 497dc797d86ca53429032a0a926bdae9, type: 3}
+  - {fileID: 21300000, guid: 4c2e862acd83b28468de44a57f095939, type: 3}
+  - {fileID: 21300000, guid: ec51f7aacb023f246a35a034708f79d4, type: 3}
+  - {fileID: 21300000, guid: f22fcdeaaa4642b468defbd999a13cc5, type: 3}
+  - {fileID: 21300000, guid: 3822211b8d226cf4f97669dc3577401d, type: 3}
+  - {fileID: 21300000, guid: b4497a4d7a266fd408426ed634deab84, type: 3}
+  - {fileID: 21300000, guid: 282c55bd5b9668d4ba62cb9341817573, type: 3}
+  - {fileID: 21300000, guid: 83b16c2e882ad1041869ac11cb42af64, type: 3}
+  - {fileID: 21300000, guid: d642e4aedf3e7514497fedee7fa790e6, type: 3}
+  - {fileID: 21300000, guid: e0d47bde49e642849beb1af79949ce40, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - ExitIcon
+  - SoundIcon
+  - Next
+  - Pause
+  - MenuIcon
+  - UniversalSimpleUnder_Main
+  - SettingsIcon
+  - AlphaTop
+  - WhiteBox
+  - MusicIcon
+  - RepeatIcon
+  - PlayIcon
+  - HelpIcon
+  - ReloadIcon
+  - GlowEffect
+  - InfoIcon
+  - WhiteCircle
+  - More
+  m_Tag: InterfaceAtlas_unity
+  m_IsVariant: 0
