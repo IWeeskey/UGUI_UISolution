@@ -6,7 +6,7 @@ using IWDev.UISolution;
 /// </summary>
 public class ExampleWindow_Detached : MonoBehaviour
 {
-	private WindowController ThisWindowController;
+	private WindowController _thisWindowController;
 
 
 	/// <summary>
@@ -25,7 +25,7 @@ public class ExampleWindow_Detached : MonoBehaviour
 	{
 		if (gameObject.GetComponent<WindowController>())
 		{
-			ThisWindowController = gameObject.GetComponent<WindowController>();
+			_thisWindowController = gameObject.GetComponent<WindowController>();
 		}
 		else
 		{
@@ -33,7 +33,7 @@ public class ExampleWindow_Detached : MonoBehaviour
 			return;
 		}
 
-		Debug.Log("Init of a window: " + ThisWindowController.WindowName);
+		Debug.Log("Init of a window: " + _thisWindowController.WindowName);
 	}
 
 	/// <summary>

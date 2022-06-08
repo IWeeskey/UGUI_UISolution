@@ -30,26 +30,26 @@ namespace IWDev.UISolution
         /// <summary>
         /// Get all essential references
         /// </summary>
-        /// <param name="_go"> Window parent Gameobject </param>
-        public void CheckReferences(GameObject _go)
+        /// <param name="go"> Window parent Gameobject </param>
+        public void CheckReferences(GameObject go)
         {
             if (ThisAnimator == null)
             {
-                if (_go.GetComponent<Animator>() != null)
+                if (go.GetComponent<Animator>() != null)
                 {
-                    ThisAnimator = _go.GetComponent<Animator>();
+                    ThisAnimator = go.GetComponent<Animator>();
                 }
                 else
                 {
-                    Debug.LogError("Not found animator component on object: " + _go.name);
+                    Debug.LogError("Not found animator component on object: " + go.name);
                 }
             }
 
             if (ThisNonDrawingGraphic == null)
             {
-                if (_go.GetComponent<NonDrawingGraphic>() != null)
+                if (go.GetComponent<NonDrawingGraphic>() != null)
                 {
-                    ThisNonDrawingGraphic = _go.GetComponent<NonDrawingGraphic>();
+                    ThisNonDrawingGraphic = go.GetComponent<NonDrawingGraphic>();
                 }
                 else
                 {
@@ -59,9 +59,9 @@ namespace IWDev.UISolution
 
             if (ThisCanvas == null)
             {
-                if (_go.GetComponent<Canvas>() != null)
+                if (go.GetComponent<Canvas>() != null)
                 {
-                    ThisCanvas = _go.GetComponent<Canvas>();
+                    ThisCanvas = go.GetComponent<Canvas>();
                 }
                 else
                 {
@@ -111,27 +111,27 @@ namespace IWDev.UISolution
     public class UIElementBase : MonoBehaviour, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
     {
 
-        private UIElement_References ElementReferences;
+        private UIElement_References _elementReferences;
         public UIElement_ScaleSettings AnimationScaleSettings;
         public UIElement_RuntimeParameters RuntimeParameters;
 
         /// <summary>
         /// List of active DOTweens
         /// </summary>
-        private List<Tween> ActiveTweens = new List<Tween>();
+        private List<Tween> _activeTweens = new List<Tween>();
 
         /// <summary>
         /// List of active IEnumerator
         /// </summary>
-        private List<IEnumerator> ActiveIEnumerators = new List<IEnumerator>();
+        private List<IEnumerator> _activeIEnumerators = new List<IEnumerator>();
 
         /// <summary>
         /// Locks or unlocks this ui element so it can not be clickable
         /// </summary>
-        /// <param name="_val"></param>
-        public void SetLock(bool _val)
+        /// <param name="val"></param>
+        public void SetLock(bool val)
         {
-            RuntimeParameters.NotClickable = _val;
+            RuntimeParameters.NotClickable = val;
         }
 
         /// <summary>
@@ -151,12 +151,12 @@ namespace IWDev.UISolution
         /// <summary>
         /// On Init Fires from parent window class
         /// </summary>
-        /// <param name="_enableAnimators"></param>
-        public virtual void OnInit(bool _enableAnimators = false)
+        /// <param name="enableAnimators"></param>
+        public virtual void OnInit(bool enableAnimators = false)
         {
-            ElementReferences = new UIElement_References();
-            ElementReferences.CheckReferences(gameObject);
-            EnableAnimator(_enableAnimators);
+            _elementReferences = new UIElement_References();
+            _elementReferences.CheckReferences(gameObject);
+            EnableAnimator(enableAnimators);
         }
 
 
@@ -165,13 +165,13 @@ namespace IWDev.UISolution
         /// </summary>
         private void RefreshAnimatorSettings()
         {
-            ElementReferences.ThisAnimator.SetInteger("BeforeAppearState", (int)AnimationScaleSettings.BeforeAppear);
-            ElementReferences.ThisAnimator.SetInteger("AppearState", (int)AnimationScaleSettings.Appear);
-            ElementReferences.ThisAnimator.SetInteger("IdleState", (int)AnimationScaleSettings.Idle);
-            ElementReferences.ThisAnimator.SetInteger("ClickedState", (int)AnimationScaleSettings.Clicked);
-            ElementReferences.ThisAnimator.SetInteger("PressedState", (int)AnimationScaleSettings.Pressed);
-            ElementReferences.ThisAnimator.SetInteger("DisappearState", (int)AnimationScaleSettings.Disappear);
-            ElementReferences.ThisAnimator.SetInteger("WhileIdleState", (int)AnimationScaleSettings.Kick);
+            _elementReferences.ThisAnimator.SetInteger("BeforeAppearState", (int)AnimationScaleSettings.BeforeAppear);
+            _elementReferences.ThisAnimator.SetInteger("AppearState", (int)AnimationScaleSettings.Appear);
+            _elementReferences.ThisAnimator.SetInteger("IdleState", (int)AnimationScaleSettings.Idle);
+            _elementReferences.ThisAnimator.SetInteger("ClickedState", (int)AnimationScaleSettings.Clicked);
+            _elementReferences.ThisAnimator.SetInteger("PressedState", (int)AnimationScaleSettings.Pressed);
+            _elementReferences.ThisAnimator.SetInteger("DisappearState", (int)AnimationScaleSettings.Disappear);
+            _elementReferences.ThisAnimator.SetInteger("WhileIdleState", (int)AnimationScaleSettings.Kick);
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -203,10 +203,10 @@ namespace IWDev.UISolution
         /// <summary>
         /// Enables or disables animator component in order to avoid unnecesary render calls within canvas
         /// </summary>
-        /// <param name="_value"></param>
-        private void EnableAnimator(bool _value)
+        /// <param name="value"></param>
+        private void EnableAnimator(bool value)
         {
-            ElementReferences.ThisAnimator.enabled = _value;
+            _elementReferences.ThisAnimator.enabled = value;
         }
 
         /// <summary>
@@ -214,59 +214,59 @@ namespace IWDev.UISolution
         /// </summary>
         private void KillAllCoroutines()
         {
-            foreach (Tween tw in ActiveTweens)
+            foreach (Tween tw in _activeTweens)
             {
                 if (tw != null)
                 {
                     tw.Kill();
                 }
             }
-            ActiveTweens.Clear();
+            _activeTweens.Clear();
 
-            foreach (IEnumerator _IEnum in ActiveIEnumerators)
+            foreach (IEnumerator _IEnum in _activeIEnumerators)
             {
                 if (_IEnum != null) StopCoroutine(_IEnum);
             }
 
-            ActiveIEnumerators.Clear();
+            _activeIEnumerators.Clear();
         }
 
 
         /// <summary>
         /// Change animation state of this element
         /// </summary>
-        /// <param name="_value"></param>
-        public void SwitchAnimationTo(UIEBasicStates _value)
+        /// <param name="value"></param>
+        public void SwitchAnimationTo(UIEBasicStates value)
         {
             EnableAnimator(true);
             KillAllCoroutines();
 
-            RuntimeParameters.LastAnimationType = _value;
-            ElementReferences.CheckReferences(gameObject);
+            RuntimeParameters.LastAnimationType = value;
+            _elementReferences.CheckReferences(gameObject);
             RefreshAnimatorSettings();
 
-            ElementReferences.ThisAnimator.SetInteger("State", (int)_value);
-            ElementReferences.ThisAnimator.SetTrigger("ChangeState");
+            _elementReferences.ThisAnimator.SetInteger("State", (int)value);
+            _elementReferences.ThisAnimator.SetTrigger("ChangeState");
 
 
             //handling animator component 
             if (AnimationScaleSettings.Idle == UIEStates_Idle.None)
             {
-                IEnumerator _DisableAnimatorCoro = IndependentCoroutines.CallbackDelay_IEnumerator(0.5f, () =>
+                IEnumerator disableAnimatorCoro = IndependentCoroutines.CallbackDelay_IEnumerator(0.5f, () =>
                 {
                     EnableAnimator(false);
                 });
-                StartCoroutine(_DisableAnimatorCoro);
-                ActiveIEnumerators.Add(_DisableAnimatorCoro);
+                StartCoroutine(disableAnimatorCoro);
+                _activeIEnumerators.Add(disableAnimatorCoro);
 
 
                 /*
-                Tween _DisableAnimatorTween = IndependentCoroutines.CallbackDelay_DoTween(0.5f, () =>
+                Tween disableAnimatorTween = IndependentCoroutines.CallbackDelay_DoTween(0.5f, () =>
                 {
                     EnableAnimator(false);
                 });
 
-                ActiveTweens.Add(_DisableAnimatorTween);
+                ActiveTweens.Add(disableAnimatorTween);
                 */
             }
         }

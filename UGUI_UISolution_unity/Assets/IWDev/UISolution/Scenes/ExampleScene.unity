@@ -7946,7 +7946,7 @@ PrefabInstance:
     - target: {fileID: 2439112141793087510, guid: 14a66f208ea955649b0ae289051e8e3a,
         type: 3}
       propertyPath: CalculateFPS
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2439112141793087511, guid: 14a66f208ea955649b0ae289051e8e3a,
         type: 3}

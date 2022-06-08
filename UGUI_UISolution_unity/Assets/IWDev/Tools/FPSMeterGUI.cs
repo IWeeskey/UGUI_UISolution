@@ -13,14 +13,14 @@ namespace IWDev.Tools
 		public string Prefix = "FPS: ";
 
 
-		private GUIStyle FPSLabelStyle;
-		private Rect FPSRect = new Rect();
+		private GUIStyle _FPSLabelStyle;
+		private Rect _FPSRect = new Rect();
 
 		private void Awake()
 		{
 			Instance = this;
 
-			FPSRect = new Rect(5, 
+			_FPSRect = new Rect(5, 
 				Screen.height - Screen.height * 0.025f-20, 
 				(int)Screen.width*0.25f, 
 				(int)Screen.height * 0.025f + 20);
@@ -48,11 +48,11 @@ namespace IWDev.Tools
 			if (!CalculateFPS) return;
 
 
-			FPSLabelStyle = new GUIStyle(GUI.skin.label);
-			FPSLabelStyle.fontSize = (int)(Screen.width * 0.05f);
+			_FPSLabelStyle = new GUIStyle(GUI.skin.label);
+			_FPSLabelStyle.fontSize = (int)(Screen.width * 0.05f);
 
 			GUI.contentColor = FPSColor;
-			GUI.Label(FPSRect, Prefix + CurrentFps.ToString(), FPSLabelStyle);
+			GUI.Label(_FPSRect, Prefix + CurrentFps.ToString(), _FPSLabelStyle);
 		}
 		
 	

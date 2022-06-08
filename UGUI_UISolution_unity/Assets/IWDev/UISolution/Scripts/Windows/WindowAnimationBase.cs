@@ -29,32 +29,32 @@ namespace IWDev.UISolution
         /// <summary>
         /// Get all essential references
         /// </summary>
-        /// <param name="_go"> Window parent Gameobject </param>
-        public void GetReferences(GameObject _go)
+        /// <param name="go"> Window parent Gameobject </param>
+        public void GetReferences(GameObject go)
         {
-            Debug.Log("Try to get window anim references on object: " + _go.name);
+            Debug.Log("Try to get window anim references on object: " + go.name);
 
-            if (_go.GetComponent<Animator>() != null)
+            if (go.GetComponent<Animator>() != null)
             {
-                ThisAnimator = _go.GetComponent<Animator>();
+                ThisAnimator = go.GetComponent<Animator>();
                 Debug.Log("Animator successfully found");
             }
             else
             {
-                Debug.LogError("Not found animator component on object: " + _go.name);
+                Debug.LogError("Not found animator component on object: " + go.name);
             }
 
-            if (_go.GetComponent<Canvas>() != null)
+            if (go.GetComponent<Canvas>() != null)
             {
-                ThisCanvas = _go.GetComponent<Canvas>();
+                ThisCanvas = go.GetComponent<Canvas>();
                 Debug.Log("Canvas successfully found");
             }
             else
             {
-                Debug.LogError("Not found Canvas component on object: " + _go.name);
+                Debug.LogError("Not found Canvas component on object: " + go.name);
             }
 
-            AllAnimatedElements = _go.GetComponentsInChildren<UIElementBase>(true).ToList();
+            AllAnimatedElements = go.GetComponentsInChildren<UIElementBase>(true).ToList();
             if (AllAnimatedElements != null && AllAnimatedElements.Count > 0)
             {
                 Debug.Log("Successfully found: " + AllAnimatedElements.Count + " animated elements");
@@ -64,9 +64,9 @@ namespace IWDev.UISolution
                 Debug.Log("No animated elements were found");
             }
 
-            AdditionalCanvases = _go.GetComponentsInChildren<Canvas>(true).ToList();
+            AdditionalCanvases = go.GetComponentsInChildren<Canvas>(true).ToList();
 
-            //if additional canvase contains this window canvas - remove it from the list
+            //if additional canvas contains this window canvas - remove it from the list
             if (AdditionalCanvases.Contains(ThisCanvas)) AdditionalCanvases.Remove(ThisCanvas);
 
             if (AdditionalCanvases != null && AdditionalCanvases.Count > 0)
@@ -152,12 +152,12 @@ namespace IWDev.UISolution
         /// <summary>
         /// List of active DOTweens
         /// </summary>
-        private List<Tween> ActiveTweens = new List<Tween>();
+        private List<Tween> _activeTweens = new List<Tween>();
 
         /// <summary>
         /// List of active IEnumerator
         /// </summary>
-        private List<IEnumerator> ActiveIEnumerators = new List<IEnumerator>();
+        private List<IEnumerator> _activeIEnumerators = new List<IEnumerator>();
 
         /// <summary>
         /// Use this method from editor. Gathers all necessary info to work properly
@@ -189,18 +189,18 @@ namespace IWDev.UISolution
         /// <summary>
         /// Controls this window canvases
         /// </summary>
-        /// <param name="_value"></param>
-        private void CanvasesEnable(bool _value)
+        /// <param name="value"></param>
+        private void CanvasesEnable(bool value)
         {
-            WindowReferences.ThisCanvas.enabled = _value;
+            WindowReferences.ThisCanvas.enabled = value;
 
             foreach (Canvas cnv in WindowReferences.AdditionalCanvases)
             {
-                cnv.enabled = _value;
+                cnv.enabled = value;
             }
 
             //if we enabling window
-            if (_value)
+            if (value)
             {
                 gameObject.SetActive(true);
             }
@@ -216,10 +216,10 @@ namespace IWDev.UISolution
         /// <summary>
         /// Enables or disables animator component in order to avoid unnecesary render calls within canvas
         /// </summary>
-        /// <param name="_value"></param>
-        private void EnableAnimator(bool _value)
+        /// <param name="value"></param>
+        private void EnableAnimator(bool value)
         {
-            WindowReferences.ThisAnimator.enabled = _value;
+            WindowReferences.ThisAnimator.enabled = value;
         }
 
 
@@ -275,17 +275,17 @@ namespace IWDev.UISolution
         /// <summary>
         /// Controls of animator state
         /// </summary>
-        /// <param name="_value"></param>
-        public void SwitchAnimationTo(UIWStateTypes _value)
+        /// <param name="value"></param>
+        public void SwitchAnimationTo(UIWStateTypes value)
         {
             if (WindowReferences.ThisAnimator != null)
             {
                 EnableAnimator(true);
                 ApplySettings();
-                WindowReferences.ThisAnimator.SetInteger("State", (int)_value);
+                WindowReferences.ThisAnimator.SetInteger("State", (int)value);
                 WindowReferences.ThisAnimator.SetTrigger("ChangeState");
 
-                WindowRuntimeParameters.CurrentState = _value;
+                WindowRuntimeParameters.CurrentState = value;
             }
         }
 
@@ -315,12 +315,12 @@ namespace IWDev.UISolution
         /// <returns></returns>
         IEnumerator DisAppearCoro()
         {
-            IEnumerator _DisableAnimatorCoro = IndependentCoroutines.CallbackDelay_IEnumerator(0.5f / WindowSettings.DisappearSpeed, () =>
+            IEnumerator disableAnimatorCoro = IndependentCoroutines.CallbackDelay_IEnumerator(0.5f / WindowSettings.DisappearSpeed, () =>
             {
                 CanvasesEnable(false);
                 EnableAnimator(false);
             });
-            ActiveIEnumerators.Add(_DisableAnimatorCoro);
+            _activeIEnumerators.Add(disableAnimatorCoro);
 
             /*
             Tween _tween = IndependentCoroutines.CallbackDelay_DoTween(0.5f / WindowSettings.DisappearSpeed, () => 
@@ -333,7 +333,7 @@ namespace IWDev.UISolution
             yield return _tween.WaitForCompletion();
             */
 
-            yield return StartCoroutine(_DisableAnimatorCoro);
+            yield return StartCoroutine(disableAnimatorCoro);
         }
 
         
@@ -342,30 +342,30 @@ namespace IWDev.UISolution
         /// </summary>
         private void KillAllCoroutines()
         {
-            foreach (Tween tw in ActiveTweens)
+            foreach (Tween tw in _activeTweens)
             {
                 if (tw != null)
                 {
                     tw.Kill();
                 }
             }
-            ActiveTweens.Clear();
+            _activeTweens.Clear();
 
-            foreach (IEnumerator _IEnum in ActiveIEnumerators)
+            foreach (IEnumerator _IEnum in _activeIEnumerators)
             {
                 if (_IEnum != null) StopCoroutine(_IEnum);
             }
 
-            ActiveIEnumerators.Clear();
+            _activeIEnumerators.Clear();
 
             if (CurrentStateCoro != null) StopCoroutine(CurrentStateCoro);
         }
 
 
-        private float _MinAEAppearGap = .075f;
-        private float _MinAECount = 5f;
-        private float _ActualAEAppearGap = 0f;
-        private int _ActiveAE = 1;
+        private float _minAEAppearGap = .075f;
+        private float _minAECount = 5f;
+        private float _actualAEAppearGap = 0f;
+        private int _activeAE = 1;
         /// <summary>
         /// Appear coroutine. Here we successively iterate through all animated elements
         /// and call appear animation in each
@@ -373,21 +373,21 @@ namespace IWDev.UISolution
         /// <returns></returns>
         IEnumerator AppearCoro()
         {
-            IEnumerator _DisableAnimatorCoro = IndependentCoroutines.CallbackDelay_IEnumerator(0.5f / WindowSettings.AppearSpeed, () =>
+            IEnumerator disableAnimatorCoro = IndependentCoroutines.CallbackDelay_IEnumerator(0.5f / WindowSettings.AppearSpeed, () =>
             {
                 EnableAnimator(false);
             });
-            StartCoroutine(_DisableAnimatorCoro);
-            ActiveIEnumerators.Add(_DisableAnimatorCoro);
+            StartCoroutine(disableAnimatorCoro);
+            _activeIEnumerators.Add(disableAnimatorCoro);
 
             /*
             //run tween which disables animator component
-            Tween _DisableAnimatorTween = IndependentCoroutines.CallbackDelay_DoTween(0.5f / WindowSettings.AppearSpeed, () =>
+            Tween disableAnimatorTween = IndependentCoroutines.CallbackDelay_DoTween(0.5f / WindowSettings.AppearSpeed, () =>
             {
                 EnableAnimator(false);
             });
 
-            ActiveTweens.Add(_DisableAnimatorTween);
+            ActiveTweens.Add(disableAnimatorTween);
             */
 
             foreach (UIElementBase uiae in WindowReferences.AllAnimatedElements)
@@ -395,17 +395,17 @@ namespace IWDev.UISolution
                 uiae.SwitchAnimationTo(UIEBasicStates.BeforeAppear);
             }
 
-            _ActiveAE = GetActiveAnimatedElementsCount();
+            _activeAE = GetActiveAnimatedElementsCount();
 
             //calculating time gap between showing each animated element
-            if (_ActiveAE <= _MinAECount)
+            if (_activeAE <= _minAECount)
             {
-                _ActualAEAppearGap = _MinAEAppearGap/WindowSettings.AppearSpeed;
+                _actualAEAppearGap = _minAEAppearGap/WindowSettings.AppearSpeed;
             }
             else
             {
-                _ActualAEAppearGap = _MinAEAppearGap / WindowSettings.AppearSpeed 
-                    * _MinAECount / (float)_ActiveAE;
+                _actualAEAppearGap = _minAEAppearGap / WindowSettings.AppearSpeed 
+                    * _minAECount / (float)_activeAE;
             }
 
             yield return new WaitForEndOfFrame();
@@ -415,27 +415,27 @@ namespace IWDev.UISolution
                 {
                     uiae.SwitchAnimationTo(UIEBasicStates.Appear);
 
-                    Tween _tween = IndependentCoroutines.CallbackDelay_DoTween(_ActualAEAppearGap, ()=> { });
-                    ActiveTweens.Add(_tween);
+                    Tween tween = IndependentCoroutines.CallbackDelay_DoTween(_actualAEAppearGap, ()=> { });
+                    _activeTweens.Add(tween);
 
-                    yield return _tween.WaitForCompletion();
+                    yield return tween.WaitForCompletion();
                 }
             }
         }
 
         int GetActiveAnimatedElementsCount()
         {
-            int _activeAE_count = 0;
+            int activeAE_count = 0;
 
             foreach (UIElementBase AE in WindowReferences.AllAnimatedElements)
             {
                 if (AE.gameObject.activeSelf)
                 {
-                    _activeAE_count++;
+                    activeAE_count++;
                 }
             }
 
-            return _activeAE_count;
+            return activeAE_count;
         }
     }
 }

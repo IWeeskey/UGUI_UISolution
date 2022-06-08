@@ -26,13 +26,13 @@ namespace IWDev.UISolution
         }
 
         /// <summary>
-        /// Simple logic to prevent 
+        /// Simple logic to handle locking 
         /// </summary>
         public void SmallLock()
         {
             _locked = true;
 
-            Tween _tween = DOVirtual.Float(0f, 1f, 0.5f, (float val) =>
+            Tween tween = DOVirtual.Float(0f, 1f, 0.5f, (float val) =>
             { }).OnComplete(() =>
             {
                 _locked = false;
@@ -59,24 +59,24 @@ namespace IWDev.UISolution
 
         public bool IsWindowOpened(WindowNames _wName)
         {
-            bool _opnd = false;
+            bool opnd = false;
 
             foreach (WindowController wind in AllWindows)
             {
                 if (wind.WindowName == _wName && wind.WindowRuntimeParameters.IsActive)
                 {
-                    _opnd = true;
+                    opnd = true;
                 }
             }
 
-            return _opnd;
+            return opnd;
         }
 
-        public void OpenWindowByName(WindowNames _wName)
+        public void OpenWindowByName(WindowNames wName)
         {
             foreach (WindowController wind in AllWindows)
             {
-                if (wind.WindowName == _wName)
+                if (wind.WindowName == wName)
                 {
                     wind.OpenWindow();
                     return;
@@ -85,42 +85,42 @@ namespace IWDev.UISolution
 
 
 
-            Debug.LogError("Not found window with name: " + _wName);
+            Debug.LogError("Not found window with name: " + wName);
         }
 
-        public void CloseWindowByName(WindowNames _wName)
+        public void CloseWindowByName(WindowNames wName)
         {
             foreach (WindowController wind in AllWindows)
             {
-                if (wind.WindowName == _wName)
+                if (wind.WindowName == wName)
                 {
                     wind.CloseWindow();
                     return;
                 }
             }
 
-            Debug.LogError("Not found window with name: " + _wName);
+            Debug.LogError("Not found window with name: " + wName);
         }
 
-        public WindowController GetWindowByName(WindowNames _wName)
+        public WindowController GetWindowByName(WindowNames wName)
         {
             foreach (WindowController wind in AllWindows)
             {
-                if (wind.WindowName == _wName)
+                if (wind.WindowName == wName)
                 {
                     return wind;
                 }
             }
 
-            Debug.LogError("Not found window with name: " + _wName);
+            Debug.LogError("Not found window with name: " + wName);
             return null;
         }
 
-        public void SwitchWindowByName(WindowNames _wName)
+        public void SwitchWindowByName(WindowNames wName)
         {
             foreach (WindowController wind in AllWindows)
             {
-                if (wind.WindowName == _wName)
+                if (wind.WindowName == wName)
                 {
                     if (wind.WindowRuntimeParameters.IsActive)
                     {
@@ -134,7 +134,7 @@ namespace IWDev.UISolution
                 }
             }
 
-            Debug.LogError("Not found window with name: " + _wName);
+            Debug.LogError("Not found window with name: " + wName);
         }
     }
 }

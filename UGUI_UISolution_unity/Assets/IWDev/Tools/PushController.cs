@@ -26,23 +26,23 @@ namespace IWDev.Tools
         /// <summary>
         /// Variable to check whether Android Channel is Created
         /// </summary>
-        private bool AndroidChannelCreated = false;
+        private bool _androidChannelCreated = false;
 
         /// <summary>
         /// Universal android channel id
         /// </summary>
-        private string AndroidChannelID = "push_channel_id";
+        private string _androidChannelID = "push_channel_id";
 
 
         /// <summary>
         /// if of test live push for android
         /// </summary>
-        private int LivesPushID = 123321;
+        private int _livesPushID = 123321;
 
         /// <summary>
         /// if of test live push for ios
         /// </summary>
-        private static string iOSLivesIdentifier = "test_push_id";
+        private static string _iOSLivesIdentifier = "test_push_id";
 
 
         /// <summary>
@@ -76,19 +76,19 @@ namespace IWDev.Tools
         {
 
 #if UNITY_ANDROID
-            if (!AndroidChannelCreated)
+            if (!_androidChannelCreated)
             {
 
                 var c = new AndroidNotificationChannel()
                 {
-                    Id = AndroidChannelID,
+                    Id = _androidChannelID,
                     Name = "IWDev Push",
                     Importance = Importance.High,
                     Description = "Generic notifications",
                 };
                 AndroidNotificationCenter.RegisterNotificationChannel(c);
 
-                AndroidChannelCreated = true;
+                _androidChannelCreated = true;
             }
 #endif
 
@@ -100,15 +100,15 @@ namespace IWDev.Tools
         void BreakOldLivesPushNotification()
         {
 #if UNITY_ANDROID
-            var notificationStatus = AndroidNotificationCenter.CheckScheduledNotificationStatus(LivesPushID);
+            var notificationStatus = AndroidNotificationCenter.CheckScheduledNotificationStatus(_livesPushID);
 
             if (notificationStatus == NotificationStatus.Scheduled)
             {
-                AndroidNotificationCenter.CancelNotification(LivesPushID);
+                AndroidNotificationCenter.CancelNotification(_livesPushID);
             }
             else if (notificationStatus == NotificationStatus.Delivered)
             {
-                AndroidNotificationCenter.CancelNotification(LivesPushID);
+                AndroidNotificationCenter.CancelNotification(_livesPushID);
             }
             else if (notificationStatus == NotificationStatus.Unknown)
             {
@@ -117,7 +117,7 @@ namespace IWDev.Tools
 
 
 #if UNITY_IOS
-        iOSNotificationCenter.RemoveScheduledNotification(iOSLivesIdentifier);
+        iOSNotificationCenter.RemoveScheduledNotification(_iOSLivesIdentifier);
 #endif
         }
 
@@ -181,7 +181,7 @@ namespace IWDev.Tools
 
 
             notification.FireTime = System.DateTime.Now.AddSeconds(_seconds);
-            AndroidNotificationCenter.SendNotificationWithExplicitID(notification, AndroidChannelID, LivesPushID);
+            AndroidNotificationCenter.SendNotificationWithExplicitID(notification, _androidChannelID, _livesPushID);
 #endif
 
 #if UNITY_IOS

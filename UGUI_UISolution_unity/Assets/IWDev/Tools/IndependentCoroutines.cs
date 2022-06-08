@@ -18,13 +18,13 @@ namespace IWDev.Tools
 		/// <summary>
 		/// Simple IEnumerator that checks time every frame
 		/// </summary>
-		/// <param name="_delta">time to wait</param>
+		/// <param name="delta">time to wait</param>
 		/// <returns></returns>
-		public static IEnumerator WaitForExactTime(float _delta)
+		public static IEnumerator WaitForExactTime(float delta)
         {
-            float EndTime = Time.time + _delta;
+            float endTime = Time.time + delta;
 
-            while (Time.time < EndTime)
+            while (Time.time < endTime)
             {
                 yield return new WaitForEndOfFrame();
             }
@@ -33,23 +33,23 @@ namespace IWDev.Tools
         /// <summary>
 		/// Simple IEnumerator that checks 
 		/// </summary>
-		/// <param name="_delta">time to wait</param>
+		/// <param name="delta">time to wait</param>
 		/// <returns></returns>
-		public static IEnumerator WaitForTime(float _delta)
+		public static IEnumerator WaitForTime(float delta)
         {
-            yield return new WaitForSeconds(_delta);
+            yield return new WaitForSeconds(delta);
         }
 
 
         /// <summary>
         /// IEnumerator that uses DOTween logic to precisely calculate time
         /// </summary>
-        /// <param name="_delta">time to wait</param>
+        /// <param name="delta">time to wait</param>
         /// <returns></returns>
-        public static IEnumerator WaitForExactTime_DoTween(float _delta)
+        public static IEnumerator WaitForExactTime_DoTween(float delta)
         {
-            Tween _tween = DOVirtual.Float(0f, 1f, _delta, (float _val) => { });
-            yield return _tween.WaitForCompletion();
+            Tween tween = DOVirtual.Float(0f, 1f, delta, (float val) => { });
+            yield return tween.WaitForCompletion();
         }
 
 
@@ -59,32 +59,32 @@ namespace IWDev.Tools
         /// and return DOTween Tween to handle it (e.g. kill or smth else).
         /// Note that dotween actually performs even while unity is lagging - it is bad in terms of connection with animator component.
         /// </summary>
-        /// <param name="_delta"></param>
-        /// <param name="_callback"></param>
+        /// <param name="delta"></param>
+        /// <param name="callback"></param>
         /// <returns></returns>
-        public static Tween CallbackDelay_DoTween(float _delta, Action _callback)
+        public static Tween CallbackDelay_DoTween(float delta, Action callback)
         {
-            Tween _tween = DOVirtual.Float(0f, 1f, _delta, (float _val) => { }).OnComplete(()=> { _callback(); });
-            return _tween;
+            Tween tween = DOVirtual.Float(0f, 1f, delta, (float val) => { }).OnComplete(()=> { callback(); });
+            return tween;
         }
 
         /// <summary>
         /// This method "invokes" a given callback after given delta time
         /// and return IEnumerator to handle it (e.g. kill or smth else)
         /// </summary>
-        /// <param name="_delta"></param>
-        /// <param name="_callback"></param>
+        /// <param name="delta"></param>
+        /// <param name="callback"></param>
         /// <returns></returns>
-        public static IEnumerator CallbackDelay_IEnumerator(float _delta, Action _callback)
+        public static IEnumerator CallbackDelay_IEnumerator(float delta, Action callback)
         {
-            float EndTime = Time.time + _delta;
+            float endTime = Time.time + delta;
 
-            while (Time.time < EndTime)
+            while (Time.time < endTime)
             {
                 yield return new WaitForEndOfFrame();
             }
 
-            _callback();
+            callback();
         }
 
 

@@ -5,7 +5,7 @@ using IWDev.UISolution;
 
 public class ExampleBottomPanel : MonoBehaviour
 {
-	private WindowController ThisWindowController;
+	private WindowController _thisWindowController;
 
 	/// <summary>
 	/// Fires when window is initialized
@@ -15,7 +15,7 @@ public class ExampleBottomPanel : MonoBehaviour
 	{
 		if (gameObject.GetComponent<WindowController>())
 		{
-			ThisWindowController = gameObject.GetComponent<WindowController>();
+			_thisWindowController = gameObject.GetComponent<WindowController>();
 		}
 		else
 		{
@@ -23,7 +23,7 @@ public class ExampleBottomPanel : MonoBehaviour
 			return;
 		}
 
-		Debug.Log("Init of a window: " + ThisWindowController.WindowName);
+		Debug.Log("Init of a window: " + _thisWindowController.WindowName);
 	}
 
 
