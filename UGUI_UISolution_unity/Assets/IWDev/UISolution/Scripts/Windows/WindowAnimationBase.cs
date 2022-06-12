@@ -96,6 +96,8 @@ namespace IWDev.UISolution
         /// </summary>
         public bool AwakeDisabled = false;
 
+      
+
         /// <summary>
         /// Controls appear animation speed. Increase it to make it faster
         /// </summary>
@@ -107,6 +109,11 @@ namespace IWDev.UISolution
         /// </summary>
         [Range(0.5f, 2.5f)]
         public float DisappearSpeed = 1f;
+
+        /// <summary>
+        /// Controls whether animation speed will be multilplied by timescale
+        /// </summary>
+        public bool TimeScaleSpeed = true;
 
         /// <summary>
         /// Controls window animation appear type
@@ -131,6 +138,11 @@ namespace IWDev.UISolution
         /// Is window currently opened?
         /// </summary>
         public bool IsActive = false;
+
+        /// <summary>
+        /// Is window in WORLD UI
+        /// </summary>
+        public bool IsWorldUI = false;
 
         /// <summary>
         /// Shows the state of the window
@@ -170,14 +182,14 @@ namespace IWDev.UISolution
         /// <summary>
         /// On Init we set this window to default state
         /// </summary>
-        protected virtual void OnInit()
+        protected virtual void OnInit(bool isWorld = false)
         {
             if (CurrentStateCoro != null) StopCoroutine(CurrentStateCoro);
 
             CanvasesEnable(!WindowSettings.AwakeDisabled);
             EnableAnimator(!WindowSettings.AwakeDisabled);
 
-
+            WindowRuntimeParameters.IsWorldUI = isWorld;
             WindowRuntimeParameters.IsActive = !WindowSettings.AwakeDisabled;
 
             foreach (UIElementBase uiae in WindowReferences.AllAnimatedElements)
@@ -256,8 +268,11 @@ namespace IWDev.UISolution
         /// </summary>
         public void AnimateAppear()
         {
+            
+
             //hard enables gameobject
             gameObject.SetActive(true);
+
             CanvasesEnable(true);
 
             SwitchAnimationTo(UIWStateTypes.Appear);
@@ -295,8 +310,8 @@ namespace IWDev.UISolution
         /// </summary>
         private void ApplySettings()
         {
-            WindowReferences.ThisAnimator.SetFloat("AppearMultiplier", WindowSettings.AppearSpeed);
-            WindowReferences.ThisAnimator.SetFloat("DisappearMultiplier", WindowSettings.DisappearSpeed);
+            WindowReferences.ThisAnimator.SetFloat("AppearMultiplier", WindowSettings.TimeScaleSpeed ? (WindowSettings.AppearSpeed / Time.timeScale) : WindowSettings.AppearSpeed);
+            WindowReferences.ThisAnimator.SetFloat("DisappearMultiplier", WindowSettings.TimeScaleSpeed ? (WindowSettings.DisappearSpeed / Time.timeScale) : WindowSettings.DisappearSpeed);
 
             WindowReferences.ThisAnimator.SetInteger("AppearState", (int)WindowSettings.AppearType);
             WindowReferences.ThisAnimator.SetInteger("DisappearState", (int)WindowSettings.DisappearType);
@@ -315,12 +330,16 @@ namespace IWDev.UISolution
         /// <returns></returns>
         IEnumerator DisAppearCoro()
         {
-            IEnumerator disableAnimatorCoro = IndependentCoroutines.CallbackDelay_IEnumerator(0.5f / WindowSettings.DisappearSpeed, () =>
+            IEnumerator disableAnimatorCoro = IndependentCoroutines.CallbackDelay_IEnumerator(0.5f / 
+                (WindowSettings.TimeScaleSpeed ? (WindowSettings.DisappearSpeed / Time.timeScale) : WindowSettings.DisappearSpeed)
+                , () =>
             {
                 CanvasesEnable(false);
                 EnableAnimator(false);
             });
             _activeIEnumerators.Add(disableAnimatorCoro);
+
+           
 
             /*
             Tween _tween = IndependentCoroutines.CallbackDelay_DoTween(0.5f / WindowSettings.DisappearSpeed, () => 
@@ -373,7 +392,10 @@ namespace IWDev.UISolution
         /// <returns></returns>
         IEnumerator AppearCoro()
         {
-            IEnumerator disableAnimatorCoro = IndependentCoroutines.CallbackDelay_IEnumerator(0.5f / WindowSettings.AppearSpeed, () =>
+            
+            IEnumerator disableAnimatorCoro = IndependentCoroutines.CallbackDelay_IEnumerator(0.5f / 
+                (WindowSettings.TimeScaleSpeed ? (WindowSettings.AppearSpeed / Time.timeScale) : WindowSettings.AppearSpeed)
+                , () =>
             {
                 EnableAnimator(false);
             });
@@ -392,7 +414,7 @@ namespace IWDev.UISolution
 
             foreach (UIElementBase uiae in WindowReferences.AllAnimatedElements)
             {
-                uiae.SwitchAnimationTo(UIEBasicStates.BeforeAppear);
+                if (uiae.gameObject.activeInHierarchy) uiae.SwitchAnimationTo(UIEBasicStates.BeforeAppear);
             }
 
             _activeAE = GetActiveAnimatedElementsCount();
@@ -407,6 +429,8 @@ namespace IWDev.UISolution
                 _actualAEAppearGap = _minAEAppearGap / WindowSettings.AppearSpeed 
                     * _minAECount / (float)_activeAE;
             }
+
+            _actualAEAppearGap = WindowSettings.TimeScaleSpeed ? (_actualAEAppearGap * Time.timeScale) : _actualAEAppearGap;
 
             yield return new WaitForEndOfFrame();
             foreach (UIElementBase uiae in WindowReferences.AllAnimatedElements)
@@ -429,7 +453,7 @@ namespace IWDev.UISolution
 
             foreach (UIElementBase AE in WindowReferences.AllAnimatedElements)
             {
-                if (AE.gameObject.activeSelf)
+                if (AE.gameObject.activeSelf && AE.gameObject.activeInHierarchy)
                 {
                     activeAE_count++;
                 }

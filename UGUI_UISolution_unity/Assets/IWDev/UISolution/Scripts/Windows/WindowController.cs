@@ -116,9 +116,9 @@ namespace IWDev.UISolution
 		/// <summary>
 		/// Fires when window is initialized
 		/// </summary>
-		protected override void OnInit()
+		protected override void OnInit(bool isWorld = false)
 		{
-			base.OnInit();
+			base.OnInit(isWorld);
 		}
 
 		/// <summary>

@@ -92,6 +92,11 @@ namespace IWDev.UISolution
         public UIEStates_Disappear Disappear = UIEStates_Disappear.Fancy;
 
         public UIEStates_Kick Kick = UIEStates_Kick.Bump;
+
+        /// <summary>
+        /// Controls whether animation speed will be multilplied by timescale
+        /// </summary>
+        public bool TimeScaleSpeed = true;
     }
 
     /// <summary>
@@ -125,6 +130,8 @@ namespace IWDev.UISolution
         /// </summary>
         private List<IEnumerator> _activeIEnumerators = new List<IEnumerator>();
 
+        private bool _initialized = false;
+
         /// <summary>
         /// Locks or unlocks this ui element so it can not be clickable
         /// </summary>
@@ -157,6 +164,12 @@ namespace IWDev.UISolution
             _elementReferences = new UIElement_References();
             _elementReferences.CheckReferences(gameObject);
             EnableAnimator(enableAnimators);
+            _initialized = true;
+        }
+
+        public virtual void Awake()
+        {
+            if (!_initialized) OnInit();
         }
 
 
@@ -165,6 +178,15 @@ namespace IWDev.UISolution
         /// </summary>
         private void RefreshAnimatorSettings()
         {
+            if (AnimationScaleSettings.TimeScaleSpeed)
+            {
+                _elementReferences.ThisAnimator.speed = 1f / Time.timeScale;
+            }
+            else
+            {
+                _elementReferences.ThisAnimator.speed = 1f;
+            }
+
             _elementReferences.ThisAnimator.SetInteger("BeforeAppearState", (int)AnimationScaleSettings.BeforeAppear);
             _elementReferences.ThisAnimator.SetInteger("AppearState", (int)AnimationScaleSettings.Appear);
             _elementReferences.ThisAnimator.SetInteger("IdleState", (int)AnimationScaleSettings.Idle);
@@ -238,6 +260,8 @@ namespace IWDev.UISolution
         /// <param name="value"></param>
         public void SwitchAnimationTo(UIEBasicStates value)
         {
+            if (!gameObject.activeInHierarchy) return;
+
             EnableAnimator(true);
             KillAllCoroutines();
 
@@ -252,7 +276,9 @@ namespace IWDev.UISolution
             //handling animator component 
             if (AnimationScaleSettings.Idle == UIEStates_Idle.None)
             {
-                IEnumerator disableAnimatorCoro = IndependentCoroutines.CallbackDelay_IEnumerator(0.5f, () =>
+                IEnumerator disableAnimatorCoro = IndependentCoroutines.CallbackDelay_IEnumerator(
+                    AnimationScaleSettings.TimeScaleSpeed ? (0.5f * Time.timeScale) : 0.5f
+                    , () =>
                 {
                     EnableAnimator(false);
                 });

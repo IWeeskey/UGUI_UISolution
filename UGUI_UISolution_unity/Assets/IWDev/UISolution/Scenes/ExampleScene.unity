@@ -732,6 +732,7 @@ MonoBehaviour:
     Clicked: 1
     Disappear: 1
     Kick: 1
+    TimeScaleSpeed: 1
   RuntimeParameters:
     NotClickable: 0
     LastAnimationType: 3
@@ -1189,6 +1190,7 @@ MonoBehaviour:
     Clicked: 1
     Disappear: 1
     Kick: 1
+    TimeScaleSpeed: 1
   RuntimeParameters:
     NotClickable: 0
     LastAnimationType: 3
@@ -1394,6 +1396,7 @@ Transform:
   - {fileID: 1177475432}
   - {fileID: 959286184}
   - {fileID: 802905958}
+  - {fileID: 1441522700}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2296,6 +2299,7 @@ MonoBehaviour:
     Clicked: 1
     Disappear: 1
     Kick: 1
+    TimeScaleSpeed: 1
   RuntimeParameters:
     NotClickable: 0
     LastAnimationType: 3
@@ -3078,10 +3082,12 @@ MonoBehaviour:
     AwakeDisabled: 1
     AppearSpeed: 1
     DisappearSpeed: 1
+    TimeScaleSpeed: 0
     AppearType: 6
     DisappearType: 6
   WindowRuntimeParameters:
     IsActive: 0
+    IsWorldUI: 0
     CurrentState: 0
   WindowName: 1
   WindowEvents:
@@ -3906,6 +3912,7 @@ MonoBehaviour:
     Clicked: 1
     Disappear: 1
     Kick: 1
+    TimeScaleSpeed: 1
   RuntimeParameters:
     NotClickable: 0
     LastAnimationType: 3
@@ -4256,10 +4263,12 @@ MonoBehaviour:
     AwakeDisabled: 0
     AppearSpeed: 1
     DisappearSpeed: 1
+    TimeScaleSpeed: 1
     AppearType: 1
     DisappearType: 1
   WindowRuntimeParameters:
     IsActive: 1
+    IsWorldUI: 0
     CurrentState: 0
   WindowName: 3
   WindowEvents:
@@ -4778,6 +4787,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 802a9f219585e4940badfb605d2be329, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1441522700 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2006662326817255138, guid: 55a77bbd7316cda45b45c70d31c5834e,
+    type: 3}
+  m_PrefabInstance: {fileID: 7150006345638851198}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1467665910
 GameObject:
   m_ObjectHideFlags: 0
@@ -5476,10 +5491,12 @@ MonoBehaviour:
     AwakeDisabled: 1
     AppearSpeed: 1.2
     DisappearSpeed: 1.8
+    TimeScaleSpeed: 1
     AppearType: 1
     DisappearType: 1
   WindowRuntimeParameters:
     IsActive: 0
+    IsWorldUI: 0
     CurrentState: 0
   WindowName: 2
   WindowEvents:
@@ -6296,6 +6313,7 @@ MonoBehaviour:
     Clicked: 1
     Disappear: 1
     Kick: 1
+    TimeScaleSpeed: 1
   RuntimeParameters:
     NotClickable: 0
     LastAnimationType: 3
@@ -6897,6 +6915,7 @@ MonoBehaviour:
     Clicked: 1
     Disappear: 1
     Kick: 1
+    TimeScaleSpeed: 1
   RuntimeParameters:
     NotClickable: 0
     LastAnimationType: 3
@@ -7487,6 +7506,7 @@ MonoBehaviour:
     Clicked: 1
     Disappear: 1
     Kick: 1
+    TimeScaleSpeed: 1
   RuntimeParameters:
     NotClickable: 0
     LastAnimationType: 3
@@ -7599,6 +7619,7 @@ MonoBehaviour:
     Clicked: 1
     Disappear: 1
     Kick: 1
+    TimeScaleSpeed: 1
   RuntimeParameters:
     NotClickable: 0
     LastAnimationType: 3
@@ -8010,6 +8031,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14a66f208ea955649b0ae289051e8e3a, type: 3}
+--- !u!1001 &7150006345638851198
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 299966765}
+    m_Modifications:
+    - target: {fileID: 2006662326817255138, guid: 55a77bbd7316cda45b45c70d31c5834e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2006662326817255138, guid: 55a77bbd7316cda45b45c70d31c5834e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2006662326817255138, guid: 55a77bbd7316cda45b45c70d31c5834e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2006662326817255138, guid: 55a77bbd7316cda45b45c70d31c5834e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2006662326817255138, guid: 55a77bbd7316cda45b45c70d31c5834e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2006662326817255138, guid: 55a77bbd7316cda45b45c70d31c5834e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2006662326817255138, guid: 55a77bbd7316cda45b45c70d31c5834e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2006662326817255138, guid: 55a77bbd7316cda45b45c70d31c5834e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2006662326817255138, guid: 55a77bbd7316cda45b45c70d31c5834e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2006662326817255138, guid: 55a77bbd7316cda45b45c70d31c5834e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2006662326817255138, guid: 55a77bbd7316cda45b45c70d31c5834e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4557949466821609409, guid: 55a77bbd7316cda45b45c70d31c5834e,
+        type: 3}
+      propertyPath: m_Name
+      value: TimeScaleTweaker
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 55a77bbd7316cda45b45c70d31c5834e, type: 3}
 --- !u!1001 &7929440262179976848
 PrefabInstance:
   m_ObjectHideFlags: 0

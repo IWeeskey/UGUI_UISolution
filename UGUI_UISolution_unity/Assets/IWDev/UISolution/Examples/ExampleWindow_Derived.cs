@@ -46,9 +46,9 @@ public class ExampleWindow_Derived : WindowController
 	/// Init method. It is called when WindowsManager is initialized.
 	/// Write here some singleton logic or what you wish to
 	/// </summary>
-	protected override void OnInit()
+	protected override void OnInit(bool isWorld = false)
 	{
-		base.OnInit();
+		base.OnInit(isWorld);
 		Instance = this;
 		Debug.Log("Init of a window: " + base.WindowName);
 	}

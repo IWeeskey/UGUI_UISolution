@@ -62,6 +62,7 @@
     <Compile Include="Assets\IWDev\Tools\SafeAreaSizer.cs" />
     <Compile Include="Assets\IWDev\Tools\ScreenShotCapture.cs" />
     <Compile Include="Assets\IWDev\Tools\ScriptableObjectUtility.cs" />
+    <Compile Include="Assets\IWDev\Tools\TimeScaleTweaker.cs" />
     <Compile Include="Assets\IWDev\UISolution\Examples\ExampleBottomPanel.cs" />
     <Compile Include="Assets\IWDev\UISolution\Examples\ExampleWindow_Derived.cs" />
     <Compile Include="Assets\IWDev\UISolution\Examples\ExampleWindow_Detached.cs" />
