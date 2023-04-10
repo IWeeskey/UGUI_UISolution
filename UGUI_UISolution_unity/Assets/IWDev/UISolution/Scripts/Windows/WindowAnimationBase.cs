@@ -55,6 +55,12 @@ namespace IWDev.UISolution
             }
 
             AllAnimatedElements = go.GetComponentsInChildren<UIElementBase>(true).ToList();
+
+            for (int i = AllAnimatedElements.Count - 1; i >= 0; i--)
+            {
+                if (AllAnimatedElements[i].RuntimeParameters.IgnoreToWindowAnimateSearch) AllAnimatedElements.RemoveAt(i);
+            }
+
             if (AllAnimatedElements != null && AllAnimatedElements.Count > 0)
             {
                 Debug.Log("Successfully found: " + AllAnimatedElements.Count + " animated elements");
@@ -96,7 +102,7 @@ namespace IWDev.UISolution
         /// </summary>
         public bool AwakeDisabled = false;
 
-      
+        public bool InstantDisappear = false;
 
         /// <summary>
         /// Controls appear animation speed. Increase it to make it faster
@@ -330,6 +336,13 @@ namespace IWDev.UISolution
         /// <returns></returns>
         IEnumerator DisAppearCoro()
         {
+            if (WindowSettings.InstantDisappear)
+            {
+                CanvasesEnable(false);
+                EnableAnimator(false);
+                yield break;
+            }
+
             IEnumerator disableAnimatorCoro = IndependentCoroutines.CallbackDelay_IEnumerator(0.5f / 
                 (WindowSettings.TimeScaleSpeed ? (WindowSettings.DisappearSpeed / Time.timeScale) : WindowSettings.DisappearSpeed)
                 , () =>

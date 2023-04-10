@@ -93,6 +93,9 @@ namespace IWDev.UISolution
 
         public UIEStates_Kick Kick = UIEStates_Kick.Bump;
 
+        public float AppearSpeedMultiplier = 2f;
+        public float DisappearSpeedMultiplier = 1f;
+
         /// <summary>
         /// Controls whether animation speed will be multilplied by timescale
         /// </summary>
@@ -107,6 +110,7 @@ namespace IWDev.UISolution
     {
         public bool NotClickable = false;
         public UIEBasicStates LastAnimationType = UIEBasicStates.Idle;
+        public bool IgnoreToWindowAnimateSearch = false;
     }
 
     /// <summary>
@@ -186,6 +190,9 @@ namespace IWDev.UISolution
             {
                 _elementReferences.ThisAnimator.speed = 1f;
             }
+
+            _elementReferences.ThisAnimator.SetFloat("AppearSpeedMultiplier", AnimationScaleSettings.AppearSpeedMultiplier);
+            _elementReferences.ThisAnimator.SetFloat("DisappearSpeedMultiplier", AnimationScaleSettings.DisappearSpeedMultiplier);
 
             _elementReferences.ThisAnimator.SetInteger("BeforeAppearState", (int)AnimationScaleSettings.BeforeAppear);
             _elementReferences.ThisAnimator.SetInteger("AppearState", (int)AnimationScaleSettings.Appear);
@@ -277,7 +284,9 @@ namespace IWDev.UISolution
             if (AnimationScaleSettings.Idle == UIEStates_Idle.None)
             {
                 IEnumerator disableAnimatorCoro = IndependentCoroutines.CallbackDelay_IEnumerator(
-                    AnimationScaleSettings.TimeScaleSpeed ? (0.5f * Time.timeScale) : 0.5f
+                    AnimationScaleSettings.TimeScaleSpeed ? 
+                    (0.5f * Time.timeScale / AnimationScaleSettings.DisappearSpeedMultiplier) 
+                    : 0.5f / AnimationScaleSettings.DisappearSpeedMultiplier
                     , () =>
                 {
                     EnableAnimator(false);

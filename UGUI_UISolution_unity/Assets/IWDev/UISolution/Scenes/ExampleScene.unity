@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -732,10 +732,13 @@ MonoBehaviour:
     Clicked: 1
     Disappear: 1
     Kick: 1
+    AppearSpeedMultiplier: 2
+    DisappearSpeedMultiplier: 1
     TimeScaleSpeed: 1
   RuntimeParameters:
     NotClickable: 0
     LastAnimationType: 3
+    IgnoreToWindowAnimateSearch: 0
   PlayClickSound: 1
   OnClickTrigger:
     m_PersistentCalls:
@@ -1190,10 +1193,13 @@ MonoBehaviour:
     Clicked: 1
     Disappear: 1
     Kick: 1
+    AppearSpeedMultiplier: 2
+    DisappearSpeedMultiplier: 1
     TimeScaleSpeed: 1
   RuntimeParameters:
     NotClickable: 0
     LastAnimationType: 3
+    IgnoreToWindowAnimateSearch: 0
   PlayClickSound: 1
   OnClickTrigger:
     m_PersistentCalls:
@@ -2104,7 +2110,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -1079.2998}
+  m_AnchoredPosition: {x: 0, y: -1079.25}
   m_SizeDelta: {x: 0, y: -2158.691}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &471053184
@@ -2299,10 +2305,13 @@ MonoBehaviour:
     Clicked: 1
     Disappear: 1
     Kick: 1
+    AppearSpeedMultiplier: 2
+    DisappearSpeedMultiplier: 1
     TimeScaleSpeed: 1
   RuntimeParameters:
     NotClickable: 0
     LastAnimationType: 3
+    IgnoreToWindowAnimateSearch: 0
   PlayClickSound: 1
   OnClickTrigger:
     m_PersistentCalls:
@@ -3080,6 +3089,7 @@ MonoBehaviour:
   WindowSettings:
     DisableIfNotActive: 0
     AwakeDisabled: 1
+    InstantDisappear: 0
     AppearSpeed: 1
     DisappearSpeed: 1
     TimeScaleSpeed: 0
@@ -3912,10 +3922,13 @@ MonoBehaviour:
     Clicked: 1
     Disappear: 1
     Kick: 1
+    AppearSpeedMultiplier: 2
+    DisappearSpeedMultiplier: 1
     TimeScaleSpeed: 1
   RuntimeParameters:
     NotClickable: 0
     LastAnimationType: 3
+    IgnoreToWindowAnimateSearch: 0
 --- !u!4 &1177475432 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 446928, guid: 72160ac5a4a299441b7089739608c69a,
@@ -4261,6 +4274,7 @@ MonoBehaviour:
   WindowSettings:
     DisableIfNotActive: 0
     AwakeDisabled: 0
+    InstantDisappear: 0
     AppearSpeed: 1
     DisappearSpeed: 1
     TimeScaleSpeed: 1
@@ -5489,6 +5503,7 @@ MonoBehaviour:
   WindowSettings:
     DisableIfNotActive: 0
     AwakeDisabled: 1
+    InstantDisappear: 0
     AppearSpeed: 1.2
     DisappearSpeed: 1.8
     TimeScaleSpeed: 1
@@ -6313,10 +6328,13 @@ MonoBehaviour:
     Clicked: 1
     Disappear: 1
     Kick: 1
+    AppearSpeedMultiplier: 2
+    DisappearSpeedMultiplier: 1
     TimeScaleSpeed: 1
   RuntimeParameters:
     NotClickable: 0
     LastAnimationType: 3
+    IgnoreToWindowAnimateSearch: 0
 --- !u!95 &2074322489
 Animator:
   serializedVersion: 3
@@ -6915,10 +6933,13 @@ MonoBehaviour:
     Clicked: 1
     Disappear: 1
     Kick: 1
+    AppearSpeedMultiplier: 2
+    DisappearSpeedMultiplier: 1
     TimeScaleSpeed: 1
   RuntimeParameters:
     NotClickable: 0
     LastAnimationType: 3
+    IgnoreToWindowAnimateSearch: 0
 --- !u!95 &1799938100749732657
 Animator:
   serializedVersion: 3
@@ -7506,10 +7527,13 @@ MonoBehaviour:
     Clicked: 1
     Disappear: 1
     Kick: 1
+    AppearSpeedMultiplier: 2
+    DisappearSpeedMultiplier: 1
     TimeScaleSpeed: 1
   RuntimeParameters:
     NotClickable: 0
     LastAnimationType: 3
+    IgnoreToWindowAnimateSearch: 0
 --- !u!95 &1799938101963870960
 Animator:
   serializedVersion: 3
@@ -7619,10 +7643,13 @@ MonoBehaviour:
     Clicked: 1
     Disappear: 1
     Kick: 1
+    AppearSpeedMultiplier: 2
+    DisappearSpeedMultiplier: 1
     TimeScaleSpeed: 1
   RuntimeParameters:
     NotClickable: 0
     LastAnimationType: 3
+    IgnoreToWindowAnimateSearch: 0
   PlayClickSound: 1
   OnClickTrigger:
     m_PersistentCalls:

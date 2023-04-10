@@ -73,6 +73,8 @@
         None = 0,
         Fancy = 1,
         SimpleScale = 2,
+        Instant = 3,
+
     }
 
 
