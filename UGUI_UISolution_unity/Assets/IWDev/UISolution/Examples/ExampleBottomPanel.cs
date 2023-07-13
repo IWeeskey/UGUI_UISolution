@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using IWDev.UISolution;
+using IWDev.Tools;
 
 public class ExampleBottomPanel : MonoBehaviour
 {
@@ -53,13 +54,27 @@ public class ExampleBottomPanel : MonoBehaviour
 
 	}
 
+	CoroutineTask _clickBlock;
 	public void ShowHide_ExampleWindow_Derived()
 	{
+		if (_clickBlock != null && _clickBlock.Running) return;
+		_clickBlock = new CoroutineTask(IndependentCoroutines.WaitForExactTime(0.5f));
+
 		WindowsManager.Instance.SwitchWindowByName( WindowNames.ExampleWindow_Derived);
 	}
 
 	public void ShowHide_ExampleWindow_Detached()
 	{
+		//it closes immediately coz of click on ExampleWindow_Detached background
+		//Debug.Log("0");
+		//if (_clickBlock != null && _clickBlock.Running)
+		//{
+		//	Debug.Log("0 - 1");
+		//	return;
+		//}
+		//_clickBlock = new CoroutineTask(IndependentCoroutines.WaitForExactTime(1.5f));
+		//Debug.Log("1");
+
 		WindowsManager.Instance.SwitchWindowByName(WindowNames.ExampleWindow_Detached);
 	}
 }
