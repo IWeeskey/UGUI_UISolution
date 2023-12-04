@@ -36,22 +36,25 @@ namespace IWDev.Tools
         [SerializeField] private bool _lerpDone = false;
         [SerializeField] private bool _endDelayDone = false;
 
+        [SerializeField] public bool IsRunning = false;
         [SerializeField] public bool Completed = false;
 
         [SerializeField] private float _step = 0;
         [SerializeField] private float _nextStep = 0;
 
         /// <summary>
-        /// 
+        /// LerpUnit is a universal class that lerp from 0 to 1f every frame
         /// </summary>
-        /// <param name="startDelay"></param>
-        /// <param name="endDelay"></param>
-        /// <param name="lerpLength"></param>
-        /// <param name="afterStartAction"></param>
-        /// <param name="afterEndAction"></param>
-        /// <param name="lerpAction"></param>
-        /// <param name="afterLerpAction"></param>
-        /// <param name="applyPause"></param>
+        /// <param name="startDelay">delay in seconds to start this lerp unit</param>
+        /// <param name="endDelay">delay in seconds after lerp logic is done</param>
+        /// <param name="lerpLength">length ot the lerp in seconds</param>
+        /// <param name="afterStartAction">action which triggers right after startDelay</param>
+        /// <param name="afterEndAction">action which triggers right after startDelay+lerpLength+endDelay</param>
+        /// <param name="lerpAction">action which iterates every frame and returns a float value from 0 to 1 representins a lerp progress</param>
+        /// <param name="afterLerpAction">action which triggers right after startDelay+lerpLength </param>
+        /// <param name="applyPause">if this is true all logic will be freezed during global pause</param>
+        /// <param name="repeatCount">number of repeats, eg 0 - no repeats and only 1 iterations of lerp unit. For example 2 means 1 + 2 repeats</param>
+        /// <param name="stepsCount">if this value is more then 0 it means lerp action will be called stepsCount times instead of every frame</param>
         public LerpUnit(float startDelay, float endDelay, float lerpLength,
             Action afterStartAction, Action afterEndAction, Action<float> lerpAction, Action afterLerpAction,
             bool applyPause = true, int repeatCount = 0, int stepsCount = 0)
@@ -171,8 +174,10 @@ namespace IWDev.Tools
                 if (_currentEndDelay_progress >= _endDelay)
                 {
                     _endDelayDone = true;
+                    IsRunning = false;
                     _afterEndAction();
                     Completed = true;
+                    
                 }
                 else
                 {
@@ -187,11 +192,13 @@ namespace IWDev.Tools
         {
             SmartLerpManager.Instance.StopLerpUnit(this);
             Reset();
+            IsRunning = true;
             SmartLerpManager.Instance.AddLerpUnit(this);
         }
 
         public void Stop()
         {
+            IsRunning = false;
             SmartLerpManager.Instance.StopLerpUnit(this);
         }
 

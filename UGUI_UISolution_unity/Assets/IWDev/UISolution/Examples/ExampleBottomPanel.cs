@@ -8,6 +8,8 @@ public class ExampleBottomPanel : MonoBehaviour
 {
 	private WindowController _thisWindowController;
 
+	LerpUnit _clickBlockLerp;
+
 	/// <summary>
 	/// Fires when window is initialized
 	/// Note that this will not be called while not in play mode
@@ -23,6 +25,23 @@ public class ExampleBottomPanel : MonoBehaviour
 			Debug.LogError("No WindowController component were found on object: " + gameObject);
 			return;
 		}
+
+		_clickBlockLerp = new LerpUnit(0f, 0f, 0.5f, ()=>
+		{ 
+			//start
+		}, ()=> 
+		{
+			//end
+		}, (float lerp)=> 
+		{ 
+			//lerp from 0 to 1f
+		}, ()=>
+		{
+			//after lerp
+		}, 
+		false,//apply global pause
+		0,//repeats count
+		0);//steps count
 
 		Debug.Log("Init of a window: " + _thisWindowController.WindowName);
 	}
@@ -57,8 +76,11 @@ public class ExampleBottomPanel : MonoBehaviour
 	CoroutineTask _clickBlock;
 	public void ShowHide_ExampleWindow_Derived()
 	{
-		if (_clickBlock != null && _clickBlock.Running) return;
-		_clickBlock = new CoroutineTask(IndependentCoroutines.WaitForExactTime(0.5f));
+		//if (_clickBlock != null && _clickBlock.Running) return;
+		//_clickBlock = new CoroutineTask(IndependentCoroutines.WaitForExactTime(0.5f));
+
+		if (_clickBlockLerp.IsRunning) return;
+		_clickBlockLerp.Run();
 
 		WindowsManager.Instance.SwitchWindowByName( WindowNames.ExampleWindow_Derived);
 	}
